@@ -12,6 +12,32 @@ const connection = mysql.createConnection({
     database : 'movies'
   });
 
+
+
+
+/////////////////////////////////////////////////////////////////////
+
+const request = require('request');
+
+let url = "http://api.androidhive.info/json/movies.json";
+
+let options = {json: true};
+
+
+request(url, options, (error, res, body) => {
+    
+    if (error) {
+        return  console.log(error)
+    };
+
+    if (!error && res.statusCode == 200) {
+        // console.log(body)
+    };
+});
+
+/////////////////////////////////////////////////////////////////////
+
+
 router.post('/', (req,res,next)=>{
 
     const list = {
@@ -20,7 +46,7 @@ router.post('/', (req,res,next)=>{
         rating: req.body.rating, 
         releaseYear: req.body.releaseYear, 
         genre: req.body.genre 
-    };
+    }; 
 
 
     res.status(201).json({

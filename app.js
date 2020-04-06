@@ -31,8 +31,6 @@ const connection = mysql.createConnection({
 });
 
 
-
-
 const movieRoutes = require('./api/routes/movies');
 // const orderRoutes = require('./api/routes/orders');
 
@@ -50,6 +48,8 @@ app.use((req,res,next)=>{
     }
     next();
 });
+
+
 
 
 //Routes that should handle requests
@@ -71,5 +71,7 @@ error:{
 }
   });
 });
+
+
 
 module.exports = app;
